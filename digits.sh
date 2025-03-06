@@ -1,12 +1,9 @@
 #! /bin/bash
-
-range=$(echo {1000..2000})
-pattern="[0|1]$"
+pattern=^[01]+$
 sum=0
-
-while read $range; do
-    if [[$range -eq $pattern]]; then
-	sum=$(($sum + $range))
+for number in {1000..2000}; do
+    if [[ $number =~ $pattern ]]; then
+        sum=$(($sum + $number))
     fi
 done;
 
